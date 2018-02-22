@@ -1,0 +1,41 @@
+{
+  "name": "promiseworkshop",
+  "version": "1.0.0",
+  "description": "this is promise workshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "lint": "ESLINT_ARGS='--quiet' make lint"
+  },
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "jsonlint": "^1.6.2",
+    "make-lint": "^1.0.1",
+    "pre-commit": "^1.2.2"
+  },
+  "keywords": [
+    "promise",
+    "promises"
+  ],
+  "pre-commit": [
+    "lint"
+  ],
+  "author": "swati ghaghra",
+  "license": "ISC",
+  "dependencies": {
+    "bl": "^1.2.1",
+    "cli-table": "^0.3.1",
+    "es6-promise": "^4.2.2",
+    "fast-csv": "^2.4.1",
+    "lint": "^1.1.2",
+    "q-io": "^1.13.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "strftime": "^0.10.0",
+    "terminal-in-react": "^3.5.2",
+    "through2-map": "^3.0.0"
+  }
+}
