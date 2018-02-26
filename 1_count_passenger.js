@@ -2,12 +2,14 @@ const fs = require("fs");
 const Table = require("cli-table");
 
 let string;
+let counter1 = 0;
+let counter2 = 0;
+let counter3 = 0;
 
 fs.readFile("Titanic.csv", "utf8", (err, data) => {
   if (err) return console.error(err);
   string = data.toString().split("\n").map(function(data){
     return data.match(/(".*?"(?=,)|[^",]+)/g);
-
   });
 
   // if (string > 0)string -= 1;
@@ -26,10 +28,11 @@ fs.readFile("Titanic.csv", "utf8", (err, data) => {
       SexCode: SexCode
     }
   }
+  
   let array = [];
   for (var index = 0; index < string.length; index++) {
     array.push(result(string[index][0], string[index][1], string[index][2], string[index][3], string[index][4], string[index][5], string[index][6]));
-
+  }
   
 
  // console.log(array[1]);
@@ -44,16 +47,8 @@ fs.readFile("Titanic.csv", "utf8", (err, data) => {
       counter3++;
     }
   });
+
   // console.log(counter1, counter2, counter3);
-
-
-
-
-
-
-let counter1 = 0;
-let counter2 = 0;
-let counter3 = 0;
 
 // let Total = 0;
 let arrayData1;
@@ -105,5 +100,4 @@ let arrayData3;
      arrayData1, arrayData2, arrayData3
    );
   console.log(table.toString());
- // });
-}
+ });
