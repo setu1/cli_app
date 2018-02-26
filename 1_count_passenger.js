@@ -5,6 +5,15 @@ let string;
 let counter1 = 0;
 let counter2 = 0;
 let counter3 = 0;
+let counterSurvived1 = 0;
+let counterSurvived2 = 0;
+let counterSurvived3 = 0;
+let counterNonSurvived1= 0;
+let counterNonSurvived2= 0;
+let counterNonSurvived3 = 0;
+let arrayData1;
+let arrayData2;
+let arrayData3
 
 fs.readFile("Titanic.csv", "utf8", (err, data) => {
   if (err) return console.error(err);
@@ -41,19 +50,33 @@ fs.readFile("Titanic.csv", "utf8", (err, data) => {
   array.forEach(function(record){
     if (Object.values(record)[2] === "1st") {
       counter1++;
+	  if (Object.values(record)[5] === "1") {
+		counterSurvived1++;
+	  } else {
+		counterNonSurvived1++;
+      }
+	  
     } else if (Object.values(record)[2] === "2nd") {
       counter2++;
+	  if (Object.values(record)[5] === "1") {
+		counterSurvived2++;
+	  } else {
+		counterNonSurvived2++;
+      }
     } else {
       counter3++;
+	  if (Object.values(record)[5] === "1") {
+		counterSurvived3++;
+	  } else {
+		counterNonSurvived3++;
+      }
     }
   });
 
-  // console.log(counter1, counter2, counter3);
-
+  
+  
 // let Total = 0;
-let arrayData1;
-let arrayData2;
-let arrayData3;
+
 
 //  fs.createReadStream("Titanic.csv")
 //   // .pipe(csv())
@@ -85,16 +108,16 @@ let arrayData3;
  //  })
  // .on("end", () => {
   // Total = counter1 + counter2 + counter3;
-  arrayData1 = ["1st", counter1]; 
-  arrayData2 = ["2nd", counter2];
-  arrayData3 = ["3rd", counter3];
+  arrayData1 = ["1st", counter1, counterSurvived1, counterNonSurvived1 ]; 
+  arrayData2 = ["2nd", counter2, counterSurvived2, counterNonSurvived2];
+  arrayData3 = ["3rd", counter3, counterSurvived3, counterNonSurvived3];
   const table = new Table({
     chars: {
       top: "═", "top-mid": "╤", "top-left": "╔", "top-right": "╗", bottom: "═",
       "bottom-mid": "╧", "bottom-left": "╚", "bottom-right": "╝",
       left: "║", "left-mid": "╟", mid: "─", "mid-mid": "┼",
       right: "║", "right-mid": "╢", middle: "│" },
-    head: ["PClass", "TotalCount"],
+    head: ["PClass", "TotalCount", "survived", "Non-Survived", "percentage"],
    });
   table.push(
      arrayData1, arrayData2, arrayData3
