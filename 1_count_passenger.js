@@ -13,7 +13,7 @@ let counterNonSurvived2= 0;
 let counterNonSurvived3 = 0;
 let arrayData1;
 let arrayData2;
-let arrayData3
+let arrayData3;
 
 fs.readFile("Titanic.csv", "utf8", (err, data) => {
   if (err) return console.error(err);
@@ -73,9 +73,31 @@ fs.readFile("Titanic.csv", "utf8", (err, data) => {
     }
   });
 
-  
-  
-// let Total = 0;
+ /*var percentage = (function() {
+function 
+return function(n,counter1){
+return n*percent/100;
+};
+
+})();
+
+console.log(percentage()); */
+let Total = counter1 +counter2+ counter3;
+let CalArray =[];
+let partialValue;
+let totalValue;
+let Percentage;
+CalArray.push(counter1);
+CalArray.push(counter2);
+CalArray.push(counter3);
+console.log(CalArray);
+CalArray.forEach(function(val) {
+	function Percentage(val,Total) {
+		return (val/Total) * 100; 
+	}
+	console.log(Percentage(322, 1314));
+})
+
 
 
 //  fs.createReadStream("Titanic.csv")
